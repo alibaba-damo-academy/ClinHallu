@@ -3,7 +3,8 @@
 </p>
 
 <h3 align="center">
-  CLINHALLU: A Benchmark for Diagnosing Stage-wise Hallucinations in Medical MLLM Reasoning
+  CLINHALLU: A Benchmark for Diagnosing<br>
+  Stage-wise Hallucinations in Medical MLLM Reasoning
 </h3>
 
 <p align="center">
@@ -435,6 +436,6 @@ If you find ClinHallu useful for your research and applications, please cite usi
   title={CLINHALLU: A Benchmark for Diagnosing Stage-wise Hallucinations in Medical MLLM Reasoning},
   author={Sicheng Yang and Hangjie Yuan and Wenjun Zhang and Jinwang Wang and Yichen Qian and Weihua Chen and Fan Wang and Lei Zhu},
   year={2025},
-  note={Preprint. Update this entry with the final arXiv or publication metadata.}
+  note={Preprint.}
 }
 ```
