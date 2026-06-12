@@ -3,8 +3,7 @@
 </p>
 
 <h3 align="center">
-  CLINHALLU: A Benchmark for Diagnosing<br>
-  Stage-wise Hallucinations in Medical MLLM Reasoning
+  CLINHALLU: A Benchmark for Diagnosing Stage-wise Hallucinations in Medical MLLM Reasoning
 </h3>
 
 <p align="center">
