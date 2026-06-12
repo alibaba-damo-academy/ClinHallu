@@ -1,0 +1,199 @@
+api:
+  base_url: http://127.0.0.1:8001/v1
+  api_key: "EMPTY"
+  model_cot:
+    base_url: http://127.0.0.1:8001/v1
+    api_key: "EMPTY"
+  judge:
+    base_url: http://127.0.0.1:8001/v1
+    api_key: "EMPTY"
+
+paths:
+  data_dir: data
+  results_dir: results
+  model_cache_root: ./model_cache
+  dataset: vqa-rad
+  input_file: data/vqa-rad/input/test/converted.jsonl
+  image_dir: data/vqa-rad/input/test/images
+  split: test
+
+models:
+  gold_cot:
+    - qwen3.5-plus
+  model_cot: qwen3.5-9b-local
+  # Keep the judge model aligned with api.judge/model_registry.
+  judge: qwen3.5-27b
+
+datasets:
+  vqa-rad-train:
+    dataset: vqa-rad
+    split: train
+    input_file: data/vqa-rad/input/train/converted.jsonl
+    image_dir: data/vqa-rad/input/train/images
+  vqa-rad-test:
+    dataset: vqa-rad
+    split: test
+    input_file: data/vqa-rad/input/test/converted.jsonl
+    image_dir: data/vqa-rad/input/test/images
+  pathvqa-train:
+    dataset: pathvqa
+    split: train
+    input_file: data/pathvqa/input/train/converted.jsonl
+    image_dir: data/pathvqa/input/train/images
+  pathvqa-validation:
+    dataset: pathvqa
+    split: validation
+    input_file: data/pathvqa/input/validation/converted.jsonl
+    image_dir: data/pathvqa/input/validation/images
+  pathvqa-test:
+    dataset: pathvqa
+    split: test
+    input_file: data/pathvqa/input/test/converted.jsonl
+    image_dir: data/pathvqa/input/test/images
+  medframeqa-test:
+    dataset: medframeqa
+    split: test
+    input_file: data/medframeqa/input/test/converted.jsonl
+    image_dir: data/medframeqa/input/test/images
+  medxpert-test:
+    dataset: medxpert
+    split: test
+    input_file: data/medxpert/input/test/converted.jsonl
+    image_dir: data/medxpert/input/test/images
+
+# Local models are served behind OpenAI-compatible vLLM endpoints.
+model_registry:
+  qwen3.5-27b:
+    model_name: qwen3.5-27b
+    api:
+      base_url: http://127.0.0.1:8002/v1
+      api_key: "EMPTY"
+  gemini-3-flash-preview:
+    model_name: gemini-3-flash-preview
+    api:
+      base_url: 
+      api_key: 
+  qwen25vl-local:
+    model_name: Qwen2.5-VL-7B-Instruct
+    api:
+      base_url: http://127.0.0.1:8001/v1
+      api_key: "EMPTY"
+  lingshu-7b-local:
+    model_name: Lingshu-7B
+    api:
+      base_url: http://127.0.0.1:8000/v1
+      api_key: "EMPTY"
+  medgemma-4b-it-local:
+    model_name: medgemma-4b-it
+    api:
+      base_url: http://127.0.0.1:8005/v1
+      api_key: "EMPTY"
+  qwen3.5-4b-local:
+    model_name: Qwen3.5-4B
+    api:
+      base_url: http://127.0.0.1:8002/v1
+      api_key: "EMPTY"
+  qwen3.5-9b-local:
+    model_name: Qwen3.5-9B
+    api:
+      base_url: http://127.0.0.1:8001/v1
+      api_key: "EMPTY"
+  qwen3-vl-8b-instruct-local:
+    model_name: Qwen3-VL-8B-Instruct
+    api:
+      base_url: http://127.0.0.1:8007/v1
+      api_key: "EMPTY"
+  qwen3-vl-32b-instruct-local:
+    model_name: Qwen3-VL-32B-Instruct
+    api:
+      base_url: http://127.0.0.1:8008/v1
+      api_key: "EMPTY"
+  internvl3.5-8b-local:
+    model_name: InternVL3_5-8B-Instruct
+    api:
+      base_url: http://127.0.0.1:8006/v1
+      api_key: "EMPTY"
+  InternVL3_5-8B:
+    model_name: InternVL3_5-8B
+    api:
+      base_url: http://127.0.0.1:8002/v1
+      api_key: "EMPTY"
+      
+# Judge models are a smaller pool and can use a dedicated endpoint.
+judge_registry:
+  qwen3.5-plus:
+    model_name: qwen3.5-plus
+  qwen3.5-27b:
+    model_name: qwen3.5-27b 
+  qwen32b:
+    model_name: qwen32b
+
+report:
+  model: qwen3.5-27b
+  num_workers: 8
+  retry_sleep_seconds: 5
+
+gold_filter:
+  judge_model: qwen3.5-9b-local
+  num_workers: 16
+
+generation:
+  num_workers: 16
+  max_samples: null
+  require_reasoning: false
+  timeout: 240
+  max_tokens: 4096
+  temperature: 0.7
+  top_p: 0.9
+  retry_attempts: 50
+
+judge:
+  num_workers: 8
+  max_samples: null
+  timeout: 60
+  max_tokens: 4096
+  temperature: 0.01
+  top_p: 0.9
+  retry_attempts: 5
+
+replace:
+  num_workers: 16
+  experiments:
+    - replace_vr
+    - replace_kr
+    - replace_vr_kr
+
+model_downloads:
+  cache_root: /model_cache
+  state_file: .model_cache/.download_state.json
+  max_rounds: 12
+  retry_sleep_seconds: 30
+  per_model_attempts: 4
+  task_defaults:
+    mode: download
+    revision: main
+  models:
+    - name: lingshu-7b
+      repo_id: lingshu-medical-mllm/Lingshu-7B
+      cache_subdir: lingshu-7b
+    - name: Qwen3.5-27B
+      repo_id: Qwen/Qwen3.5-27B
+      cache_subdir: Qwen3.5-27B
+    - name: Qwen3.5-9B
+      repo_id: Qwen/Qwen3.5-9B
+      cache_subdir: Qwen3.5-9B
+    - name: internvl3.5-8b
+      repo_id: OpenGVLab/InternVL3_5-8B-Instruct
+      cache_subdir: InternVL3_5-8B
+    - name: medgemma-4b-it
+      repo_id: google/medgemma-4b-it
+      cache_subdir: medgemma-4b-it
+    - name: qwen3-vl-8b-instruct
+      repo_id: Qwen/Qwen3-VL-8B-Instruct
+      cache_subdir: qwen3-vl-8b-instruct
+    - name: qwen3-vl-32b-instruct
+      repo_id: Qwen/Qwen3-VL-32B-Instruct
+      cache_subdir: qwen3-vl-32b-instruct
+    - name: qwen3.5-4b
+      repo_id: Qwen/Qwen3.5-4B
+      cache_subdir: qwen3.5-4b

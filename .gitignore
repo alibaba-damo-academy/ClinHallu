@@ -1,0 +1,23 @@
+# Python cache and build artifacts
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS/editor files
+.DS_Store
+
+# Project runtime artifacts
+bins/
+clinhallu_dataset/
+data/
+results/
+model_cache/
+debug_invalid_cot.jsonl
+*.log
