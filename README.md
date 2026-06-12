@@ -432,10 +432,10 @@ The tables read from:
 If you find ClinHallu useful for your research and applications, please cite using this BibTeX:
 
 ```bibtex
-@misc{yang2025clinhallu,
+@misc{yang2026clinhallu,
   title={CLINHALLU: A Benchmark for Diagnosing Stage-wise Hallucinations in Medical MLLM Reasoning},
   author={Sicheng Yang and Hangjie Yuan and Wenjun Zhang and Jinwang Wang and Yichen Qian and Weihua Chen and Fan Wang and Lei Zhu},
-  year={2025},
+  year={2026},
   note={Preprint.}
 }
 ```
