@@ -3,11 +3,11 @@
 </p>
 
 <h3 align="center">
-  CLINHALLU: A Benchmark for Diagnosing Stage-wise Hallucinations in Medical MLLM Reasoning
+  CLINHALLU: A Benchmark for Diagnosing Stage-Wise Hallucinations in Medical MLLM Reasoning
 </h3>
 
 <p align="center">
-  📃 Paper coming soon •
+  <a href="https://arxiv.org/abs/2606.14697" target="_blank">📃 Paper</a> •
   <a href="https://huggingface.co/datasets/Alibaba-DAMO-Academy/ClinHallu" target="_blank">🤗 ClinHallu Benchmark</a>
 </p>
 
@@ -20,7 +20,7 @@
 ---
 
 ## News
-- **[2026.xx.xx]** Paper released.
+- **[2026.06.12]** Paper released on arXiv: [ClinHallu Paper Link](https://arxiv.org/abs/2606.14697).
 - **[2026.06.12]** Dataset released.
 - **[2026.06.12]** Evaluation code released.
 
