@@ -20,7 +20,7 @@
 ---
 
 ## News
-- **[2026.06.12]** Paper released on arXiv: [ClinHallu Paper Link](https://arxiv.org/abs/2606.14697).
+- **[2026.06.15]** Paper released on arXiv: [ClinHallu Paper Link](https://arxiv.org/abs/2606.14697).
 - **[2026.06.12]** Dataset released.
 - **[2026.06.12]** Evaluation code released.
 
