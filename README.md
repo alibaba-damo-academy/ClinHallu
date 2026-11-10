@@ -20,7 +20,8 @@
 ---
 
 ## News
-- **[2026.06.15]** Paper released on arXiv: [ClinHallu Paper Link](https://arxiv.org/abs/2606.14697).
+- 🎉 **ClinHallu was accepted to EMNLP 2026 (Main Conference)!** [[ACL Anthology](https://aclanthology.org/2026.emnlp-main.247/)]
+- **[2026.06.15]** Paper released on arXiv.
 - **[2026.06.12]** Dataset released.
 - **[2026.06.12]** Evaluation code released.
 
@@ -431,10 +432,29 @@ The tables read from:
 If you find ClinHallu useful for your research and applications, please cite using this BibTeX:
 
 ```bibtex
-@misc{yang2026clinhallu,
-  title={CLINHALLU: A Benchmark for Diagnosing Stage-wise Hallucinations in Medical MLLM Reasoning},
-  author={Sicheng Yang and Hangjie Yuan and Wenjun Zhang and Jinwang Wang and Yichen Qian and Weihua Chen and Fan Wang and Lei Zhu},
-  year={2026},
-  note={Preprint.}
+@inproceedings{yang-etal-2026-clinhallu,
+    title = "{C}lin{H}allu: A Benchmark for Diagnosing Stage-Wise Hallucinations in Medical {MLLM} Reasoning",
+    author = "Yang, Sicheng  and
+      Yuan, Hangjie  and
+      Zhang, Wenjun  and
+      Wang, Jinwang  and
+      Qian, Yichen  and
+      Chen, Weihua  and
+      Wang, Fan  and
+      Zhu, Lei",
+    editor = "Lee, Hung-Yi  and
+      Dev, Sunipa  and
+      Li, Junyi Jessy  and
+      Elliott, Desmond",
+    booktitle = "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing",
+    month = oct,
+    year = "2026",
+    address = "Budapest, Hungary",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.emnlp-main.247/",
+    doi = "10.18653/2026.emnlp-main.247",
+    pages = "5629--5649",
+    ISBN = "979-8-89176-459-0",
+    abstract = "Building trustworthy medical multimodal large language models (MLLMs) is critical for reliable clinical decision support. Existing medical hallucination benchmarks mainly focus on data collection, but often ignore where hallucinations originate within the reasoning process. We find that hallucination sources vary across samples: errors may arise from visual misrecognition, incorrect medical knowledge recall, or flawed reasoning integration. To enable source-level hallucination diagnosis, we introduce ClinHallu, a benchmark for stage-wise hallucination diagnosis in medical MLLM reasoning. ClinHallu contains 7,031 validated instances, where each instance is augmented with a structured reasoning trace decomposed into Visual Recognition, Knowledge Recall, and Reasoning Integration. We also use stage-replacement interventions to measure how correcting specific stages affects the final answer. Beyond evaluation, we show that trace-supervised fine-tuning reduces stage-wise hallucinations. ClinHallu provides a fine-grained hallucination testbed for diagnosing and mitigating reasoning failures in medical MLLMs. The benchmark is publicly available at \url{https://github.com/alibaba-damo-academy/ClinHallu}."
 }
 ```
